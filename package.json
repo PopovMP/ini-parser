@@ -1,0 +1,28 @@
+{
+  "name": "@popovmp/ini-parser",
+  "description": "INI file parser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Popov <info@forexsb.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/popovmp/ini-parser",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@popovmp/mocha-tiny": "^2.2.0"
+  },
+  "scripts": {
+    "test": "mocha-tiny",
+    "prepublishOnly": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:PopovMP/dbil.git"
+  },
+  "keywords": [
+    "ini"
+  ],
+  "bugs": {
+    "url": "https://github.com/popovmp/ini-parser/issues"
+  }
+}
