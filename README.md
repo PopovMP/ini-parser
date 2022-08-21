@@ -1,6 +1,9 @@
 # A Simple INI Parser
 
 Parser an INI formatted string to JSON.
+Allow arbitrary texts in groups and keys.
+Allow leading spaces.
+Parses integer and float numbers, booleans, and null.
 
 Input:
 ```ini
@@ -11,6 +14,9 @@ Input:
     ; Arbitrary text in group
 [may group]
     gr-42 = 42
+    boolean = true
+    falsy = False
+    nil = null
     
     ; Empty string value
 PascalCase=
@@ -30,15 +36,18 @@ Output:
 
 ```json
 {
-   "global":"foo",
-   "letAnotherGlobalVar":3.14,
-   "mayGroup":{
-      "gr42":42,
-      "pascalCase":"",
-      "negative":-2.2
-   },
-   "otherGroup":{
-      "myLongVariable":"this is a long text"
-   }
+  "global": "foo",
+  "letAnotherGlobalVar": 3.14,
+  "mayGroup": {
+    "gr42": 42,
+    "boolean": true,
+    "falsy": false,
+    "nil": null,
+    "pascalCase": "",
+    "negative": -2.2
+  },
+  "otherGroup": {
+    "myLongVariable": "this is a long text"
+  }
 }
 ```
