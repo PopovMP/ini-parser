@@ -78,6 +78,15 @@ function parseValue(text)
 	if ( text.match(/^-?\d+\.\d+$/) )
 		return parseFloat(text)
 
+	if ( text.match(/^true$/i) )
+		return true
+
+	if ( text.match(/^false$/i) )
+		return false
+
+	if ( text.match(/^null$/i) )
+		return null
+
 	return text
 }
 

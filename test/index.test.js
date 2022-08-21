@@ -38,8 +38,11 @@ describe('parser', () => {
     let another_Global-var = 3.14
     
     ; Arbitrary text in group
-[may group]
+[my group]
     gr-42 = 42
+    boolean = true
+    falsy = False
+    nil = null
     
     ; Empty string value
 PascalCase=
@@ -50,7 +53,7 @@ PascalCase=
 			
 			`
 			const output   = JSON.stringify( parse(input) )
-			const expected = '{"global":"foo","letAnotherGlobalVar":3.14,"mayGroup":{"gr42":42,"pascalCase":"","negative":-2.2},"otherGroup":{"myLongVariable":"this is a long text"}}'
+			const expected = '{"global":"foo","letAnotherGlobalVar":3.14,"myGroup":{"gr42":42,"boolean":true,"falsy":false,"nil":null,"pascalCase":"","negative":-2.2},"otherGroup":{"myLongVariable":"this is a long text"}}'
 			strictEqual(output, expected)
 		})
 	})
