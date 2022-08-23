@@ -1,5 +1,8 @@
 'use strict'
 
+const {toCamelCase}    = require('@popovmp/camel-case')
+const {parseJsonValue} = require('@popovmp/json-value-parser')
+
 /**
  * Parses INI text to JSON
  * The groups and options can be in any format.
@@ -31,7 +34,7 @@ function parse(text)
 			const match = line.match(/^([- \w]+)[ \t]*=[ \t]*(.*)$/)
 			if (!match) throw new Error('Cannot parse: ' + line)
 			const key = toCamelCase(match[1])
-			group[key] = parseValue(match[2])
+			group[key] = parseJsonValue(match[2])
 		}
 		else {
 			throw new Error('Cannot parse: ' + line)
@@ -39,55 +42,6 @@ function parse(text)
 	}
 
 	return output
-}
-
-/**
- * Converts to camel case
- *
- * @param text
- *
- * @return {string}
- */
-function toCamelCase(text)
-{
-	let chars = []
-	for (let i = 0, wordStart = false; i < text.length; i++) {
-		const char = text[i]
-
-		if ( [' ', '_', '-'].includes(char) ) {
-			wordStart = true
-			continue
-		}
-
-		if (i === 0)
-			chars.push( char.toLowerCase() )
-		else
-			chars.push( wordStart ? char.toUpperCase() : char)
-
-		wordStart = false
-	}
-
-	return chars.join('')
-}
-
-function parseValue(text)
-{
-	if ( text.match(/^-?\d+$/) )
-		return parseInt(text)
-
-	if ( text.match(/^-?\d+\.\d+$/) )
-		return parseFloat(text)
-
-	if ( text.match(/^true$/i) )
-		return true
-
-	if ( text.match(/^false$/i) )
-		return false
-
-	if ( text.match(/^null$/i) )
-		return null
-
-	return text
 }
 
 module.exports = {
