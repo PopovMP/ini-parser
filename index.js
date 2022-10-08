@@ -10,7 +10,7 @@ const {parseJsonValue} = require('@popovmp/json-value-parser')
  *
  * @param {string} text - input INI formatted text
  *
- * @return {string} JSON
+ * @return {object} JSON
  */
 function parse(text)
 {

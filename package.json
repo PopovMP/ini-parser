@@ -1,7 +1,7 @@
 {
   "name": "@popovmp/ini-parser",
   "description": "INI file parser",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "index.js",
   "author": "Popov <info@forexsb.com>",
   "license": "MIT",
@@ -11,7 +11,7 @@
     "@popovmp/json-value-parser": "^1.0.0"
   },
   "devDependencies": {
-    "@popovmp/mocha-tiny": "^2.3.0"
+    "@popovmp/mocha-tiny": "^3.1.0"
   },
   "scripts": {
     "test": "mocha-tiny",
